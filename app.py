@@ -11,7 +11,8 @@ selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
 filtered_data = data[data['FSA'] == selected_level]
 
 # Plot histogram of response lag times
-st.bar_chart("Response Lag Time (in minutes)", filtered_data['Response Lag Time'])
+st.write("Response Lag Time (in minutes)")
+st.bar_chart(filtered_data['Response Lag Time'])
 
 # Show statistics on response lag times
 st.write("Mean Response Lag Time:", filtered_data['Response Lag Time'].mean())
