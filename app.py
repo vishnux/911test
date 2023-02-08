@@ -15,9 +15,15 @@ st.write("Response Lag Time (in minutes)")
 st.bar_chart(filtered_data['Response Lag Time'])
 
 # Show statistics on response lag times
-st.write("Mean Response Lag Time:", filtered_data['Response Lag Time'].mean())
-st.write("Median Response Lag Time:", filtered_data['Response Lag Time'].median())
-st.write("Standard Deviation of Response Lag Time:", filtered_data['Response Lag Time'].std())
+col1, col2, col3 = st.columns(3)
+col1.metric("Mean Response Lag Time:", filtered_data['Response Lag Time'].mean())
+col2.metric("Median Response Lag Time:", filtered_data['Response Lag Time'].median())
+col3.metric("Standard Deviation of Response Lag Time:", filtered_data['Response Lag Time'].std())
+
+#col1, col2, col3 = st.columns(3)
+##col1.metric("Temperature", "70 °F", "1.2 °F")
+#col2.metric("Wind", "9 mph", "-8%")
+#col3.metric("Humidity", "86%", "4%")
 
 # Show a table of top 5 Fire Stations with highest mean response lag times
 st.write("Top 5 Fire Stations with highest mean response lag times:")
