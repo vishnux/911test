@@ -18,7 +18,7 @@ st.bar_chart(filtered_data['Response Lag Time'])
 col1, col2, col3 = st.columns(3)
 col1.metric("Mean Response Lag Time:", round(filtered_data['Response Lag Time'].mean(),2))
 col2.metric("Median Response Lag Time:", round(filtered_data['Response Lag Time'].median(),2))
-col3.metric("Standard Deviation of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
+col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
 
 #col1, col2, col3 = st.columns(3)
 ##col1.metric("Temperature", "70 °F", "1.2 °F")
