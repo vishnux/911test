@@ -1,5 +1,17 @@
 import streamlit as st
 import pandas as pd
+import json
+from datetime import date
+from urllib.request import urlopen
+import time
+
+import altair as alt
+import numpy as np
+import pandas as pd
+import requests
+import streamlit as st
+import streamlit.components.v1 as components
+from pandas.io.json import json_normalize
 
 st.title("Calgary Fire Station Response Lag Time Analysis")
 
