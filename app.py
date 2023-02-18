@@ -13,10 +13,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 from pandas.io.json import json_normalize
 
+st.set_page_config(layout="wide")
 st.title("Calgary Fire Station Response Lag Time Analysis")
 #st.set_page_config(layout="wide")
-
-
 
 # Load data into a pandas dataframe
 data = pd.read_csv("fire_station_data.csv")
