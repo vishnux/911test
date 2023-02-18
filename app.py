@@ -22,7 +22,7 @@ st.title("Calgary Fire Station Response Lag Time Analysis")
 data = pd.read_csv("fire_station_data.csv")
 
 #Map
-st.map(data)
+#st.map(data)
 
 # Filter data for FSA level
 selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
