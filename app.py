@@ -15,11 +15,7 @@ from pandas.io.json import json_normalize
 
 st.title("Calgary Fire Station Response Lag Time Analysis")
 
-st.set_page_config(
-    page_title="Calgary 911 Response Lag Times",
-    layout='wide',
-    initial_sidebar_state='auto',
-)
+
 
 # Load data into a pandas dataframe
 data = pd.read_csv("fire_station_data.csv")
