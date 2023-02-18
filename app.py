@@ -13,7 +13,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from pandas.io.json import json_normalize
 
-st.title("Calgary Fire Station Response Lag Time Analysis")
+st.title("Calgary Fire Station Response Lag Time Analysis", layout='wide')
 
 
 
