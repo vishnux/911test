@@ -1,84 +1,48 @@
 import streamlit as st
 import pandas as pd
+import json
+from datetime import date
+from urllib.request import urlopen
+import time
+
+import altair as alt
 import numpy as np
+import pandas as pd
+import requests
+import streamlit as st
+import streamlit.components.v1 as components
+from pandas.io.json import json_normalize
 
-st.title('Uber pickups in NYC')
-
-DATE_COLUMN = 'date/time'
-DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
-            'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
-
-@st.cache_data
-def load_data(nrows):
-    data = pd.read_csv(DATA_URL, nrows=nrows)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis='columns', inplace=True)
-    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
-    return data
-
-data_load_state = st.text('Loading data...')
-data = load_data(10000)
-data_load_state.text("Done! (using st.cache_data)")
-
-if st.checkbox('Show raw data'):
-    st.subheader('Raw data')
-    st.write(data)
-
-st.subheader('Number of pickups by hour')
-hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
-st.bar_chart(hist_values)
-
-# Some number in the range 0-23
-hour_to_filter = st.slider('hour', 0, 23, 17)
-filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
-
-st.subheader('Map of all pickups at %s:00' % hour_to_filter)
-st.map(filtered_data)
-# import streamlit as st
-# import pandas as pd
-# import json
-# from datetime import date
-# from urllib.request import urlopen
-# import time
-
-# import altair as alt
-# import numpy as np
-# import pandas as pd
-# import requests
-# import streamlit as st
-# import streamlit.components.v1 as components
-# from pandas.io.json import json_normalize
-
-# st.title("Calgary Fire Station Response Lag Time Analysis")
-# #st.set_page_config(layout="wide")
+st.title("Calgary Fire Station Response Lag Time Analysis")
+#st.set_page_config(layout="wide")
 
 
 
-# # Load data into a pandas dataframe
-# data = pd.read_csv("fire_station_data.csv")
+# Load data into a pandas dataframe
+data = pd.read_csv("fire_station_data.csv")
 
-# # Filter data for FSA level
-# selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
-# filtered_data = data[data['FSA'] == selected_level]
+# Filter data for FSA level
+selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
+filtered_data = data[data['FSA'] == selected_level]
 
-# # Plot histogram of response lag times
-# st.write("Response Lag Time (in minutes)")
-# st.bar_chart(filtered_data['Response Lag Time'])
+# Plot histogram of response lag times
+st.write("Response Lag Time (in minutes)")
+st.bar_chart(filtered_data['Response Lag Time'])
 
-# # Show statistics on response lag times
-# col1, col2, col3 = st.columns(3)
-# col1.metric("Mean Response Lag Time:", round(filtered_data['Response Lag Time'].mean(),2))
-# col2.metric("Median Response Lag Time:", round(filtered_data['Response Lag Time'].median(),2))
-# col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
+# Show statistics on response lag times
+col1, col2, col3 = st.columns(3)
+col1.metric("Mean Response Lag Time:", round(filtered_data['Response Lag Time'].mean(),2))
+col2.metric("Median Response Lag Time:", round(filtered_data['Response Lag Time'].median(),2))
+col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
 
-# #col1, col2, col3 = st.columns(3)
-# ##col1.metric("Temperature", "70 °F", "1.2 °F")
-# #col2.metric("Wind", "9 mph", "-8%")
-# #col3.metric("Humidity", "86%", "4%")
+#col1, col2, col3 = st.columns(3)
+##col1.metric("Temperature", "70 °F", "1.2 °F")
+#col2.metric("Wind", "9 mph", "-8%")
+#col3.metric("Humidity", "86%", "4%")
 
-# # Show a table of top 5 Fire Stations with highest mean response lag times
-# st.write("Top 5 Fire Stations with highest mean response lag times:")
-# st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Response Lag Time', ascending=False).head(5))
+# Show a table of top 5 Fire Stations with highest mean response lag times
+st.write("Top 5 Fire Stations with highest mean response lag times:")
+st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Response Lag Time', ascending=False).head(5))
 
 # # import json
 # # from datetime import date
