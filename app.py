@@ -14,7 +14,7 @@ import streamlit.components.v1 as components
 from pandas.io.json import json_normalize
 
 st.title("Calgary Fire Station Response Lag Time Analysis")
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 
 
