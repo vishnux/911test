@@ -21,6 +21,9 @@ st.title("Calgary Fire Station Response Lag Time Analysis")
 # Load data into a pandas dataframe
 data = pd.read_csv("fire_station_data.csv")
 
+#Map
+st.map(data)
+
 # Filter data for FSA level
 selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
 filtered_data = data[data['FSA'] == selected_level]
