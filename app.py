@@ -50,10 +50,10 @@ col2.bar_chart(filtered_data['Response Lag Time'])
 
 
 # Create the line charts using Altair
-chart1 = alt.Chart(filtered_data).mark_line().encode(x='FSA', y='Response Lag Time')
-chart2 = alt.Chart(filtered_data).mark_line().encode(x='FSA', y='Response Lag Time')
-chart3 = alt.Chart(filtered_data).mark_line().encode(x='FSA', y='Response Lag Time')
-chart4 = alt.Chart(filtered_data).mark_line().encode(x='FSA', y='Response Lag Time')
+chart1 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
+chart2 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
+chart3 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
+chart4 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
 
 # Define the layout for the line charts
 layout = (chart1 | chart2) & (chart3 | chart4)
