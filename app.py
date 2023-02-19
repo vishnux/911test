@@ -50,14 +50,16 @@ st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Respo
 st.write("Top 5 Fire Stations with least mean response lag times:")
 st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Response Lag Time', ascending=True).head(5))
 
-st.write("Response Lag Time (in minutes)")
-st.bar_chart(filtered_data['Response Lag Time'])
-
 col1, col2 = st.columns(2)
 col1.subheader("Response Lag Time (in minutes)")
 col1.bar_chart(filtered_data['Response Lag Time'])
 col2.subheader("Response Lag Time (in minutes)")
 col2.bar_chart(filtered_data['Response Lag Time'])
+
+c = alt.Chart(data, title='measure of different elements over time').mark_line().encode(
+     x='FSA', y='Response Time Lag', color='parameter')
+
+st.altair_chart(c, use_container_width=True)
 # # import json
 # # from datetime import date
 # # from urllib.request import urlopen
