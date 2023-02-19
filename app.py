@@ -4,6 +4,7 @@ import json
 from datetime import date
 from urllib.request import urlopen
 import time
+import altair as alt
 
 st.set_page_config(layout="wide")
 st.title("Calgary Fire Station Response Lag Time Analysis")
