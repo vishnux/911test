@@ -30,8 +30,8 @@ m1.write('')
 m2.write('')
 col0.write('')
 col1.metric("Mean Response Lag Time:", f"{round(filtered_data['Response Lag Time'].mean(),2)} minutes")
-col2.metric("Median Response Lag Time:", round(filtered_data['Response Lag Time'].median(),2))
-col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
+col2.metric("Median Response Lag Time:", f"{round(filtered_data['Response Lag Time'].median(),2)} minutes")
+col3.metric("Standard Deviation Response Lag Time:", f"{round(filtered_data['Response Lag Time'].std(),2)} minutes")
 col4.write('')
 
 
