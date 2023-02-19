@@ -12,9 +12,6 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 from pandas.io.json import json_normalize
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.subplots as sp
 
 st.set_page_config(layout="wide")
 st.title("Calgary Fire Station Response Lag Time Analysis")
