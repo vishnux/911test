@@ -23,13 +23,6 @@ data = pd.read_csv("fire_station_data.csv")
 #Map
 #st.map(data)
 
-[theme]
-primaryColor="#F63366"
-backgroundColor="#293745"
-secondaryBackgroundColor="#F0F2F6"
-textColor="white"
-# font="Sans-Serif,monospace"
-
 # Filter data for FSA level
 selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
 filtered_data = data[data['FSA'] == selected_level]
