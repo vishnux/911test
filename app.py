@@ -45,20 +45,6 @@ st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Respo
 
 col1, col2 = st.columns(2)
 col1.subheader("Response Lag Time (in minutes)")
-col1.bar_chart(filtered_data)#,x='FSA' , y='Response Lag Time',  use_container_width=True
+col1.bar_chart(data,x='FSA' , y='Response Lag Time')#,  use_container_width=True
 col2.subheader("Response Lag Time (in minutes)")
 col2.bar_chart(filtered_data['Response Lag Time'])
-
-
-# Create the line charts using Altair
-chart1 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
-chart2 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
-chart3 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
-chart4 = alt.Chart(data).mark_line().encode(x='FSA', y='Response Lag Time')
-
-# Define the layout for the line charts
-layout = (chart1 | chart2) & (chart3 | chart4)
-
-# Set the page title and add the layout to the app
-st.set_page_config(page_title='Line Charts', layout='wide')
-st.write(layout)
