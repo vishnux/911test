@@ -30,10 +30,10 @@ col1.metric("Mean Response Lag Time:", round(filtered_data['Response Lag Time'].
 col2.metric("Median Response Lag Time:", round(filtered_data['Response Lag Time'].median(),2))
 col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
 
-#col1, col2, col3 = st.columns(3)
-##col1.metric("Temperature", "70 °F", "1.2 °F")
-#col2.metric("Wind", "9 mph", "-8%")
-#col3.metric("Humidity", "86%", "4%")
+col1, col2, col3 = st.columns(3)
+col1.metric("Temperature", "70 °F", "1.2 °F")
+col2.metric("Wind", "9 mph", "-8%")
+col3.metric("Humidity", "86%", "4%")
 
 # Show a table of top 5 Fire Stations with highest mean response lag times
 st.write("Top 5 Fire Stations with highest mean response lag times:")
