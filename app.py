@@ -18,6 +18,10 @@ df_ems = pd.read_excel("EMS_Stations.xlsx")
 #Map
 st.map(df_ems)
 
+# Filter data for FSA level
+selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
+filtered_data = data[data['FSA'] == selected_level]
+
 # Plot histogram of response lag times
 st.write("Response Lag Time (in minutes)")
 st.bar_chart(filtered_data['Response Lag Time'])
