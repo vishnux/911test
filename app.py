@@ -14,19 +14,9 @@ st.title("Calgary Fire Station Response Lag Time Analysis")
 # Load data into a pandas dataframe
 data = pd.read_csv("fire_station_data.csv")
 df_fire = pd.read_csv("Fire_Stations.csv")
+df_ems = pd.read_excel("EMS_Stations.xlsx")
 #Map
-m = folium.Map(location=[df_fire['LAT'], df_fire['LON']], zoom_start=11)
-
-# Add markers to the map
-for index, row in df_fire.iterrows():
-    folium.Marker([row['LAT'], row['LON']], popup=row['Name']).add_to(m)
-
-# Display the map in Streamlit
-folium_static(m)
-
-# Filter data for FSA level
-selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
-filtered_data = data[data['FSA'] == selected_level]
+st.map(df_ems)
 
 # Plot histogram of response lag times
 st.write("Response Lag Time (in minutes)")
