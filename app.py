@@ -5,6 +5,7 @@ from datetime import date
 from urllib.request import urlopen
 import time
 import altair as alt
+import folium
 
 st.set_page_config(layout="wide")
 st.title("Calgary Fire Station Response Lag Time Analysis")
@@ -14,7 +15,14 @@ st.title("Calgary Fire Station Response Lag Time Analysis")
 data = pd.read_csv("fire_station_data.csv")
 df_fire = pd.read_csv("Fire_Stations.csv")
 #Map
-st.pydeck_chart(df_fire)
+m = folium.Map(location=[df_fire['lat'].mean(), df_fire['lon'].mean()], zoom_start=11)
+
+# Add markers to the map
+for index, row in df_fire.iterrows():
+    folium.Marker([row['lat'], row['lon']], popup=row['label']).add_to(m)
+
+# Display the map in Streamlit
+folium_static(m)
 
 # Filter data for FSA level
 selected_level = st.selectbox("Select FSA Level", options=data['FSA'].unique())
