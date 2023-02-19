@@ -25,7 +25,7 @@ st.write("Response Lag Time (in minutes)")
 st.bar_chart(filtered_data['Response Lag Time'])
 
 # Show statistics on response lag times
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns((1,1,1))#st.columns(3)
 col1.metric("Mean Response Lag Time:", round(filtered_data['Response Lag Time'].mean(),2))
 col2.metric("Median Response Lag Time:", round(filtered_data['Response Lag Time'].median(),2))
 col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time'].std(),2))
