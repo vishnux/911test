@@ -5,3 +5,4 @@ datetime
 altair
 streamlit
 openpyxl
+folium
