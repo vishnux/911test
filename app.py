@@ -46,6 +46,10 @@ col3.metric("SD of Response Lag Time:", round(filtered_data['Response Lag Time']
 st.write("Top 5 Fire Stations with highest mean response lag times:")
 st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Response Lag Time', ascending=False).head(5))
 
+# Show a table of top 5 Fire Stations with least mean response lag times
+st.write("Top 5 Fire Stations with least mean response lag times:")
+st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Response Lag Time', ascending=True).head(5))
+
 # # import json
 # # from datetime import date
 # # from urllib.request import urlopen
