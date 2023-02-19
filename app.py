@@ -47,4 +47,4 @@ col1, col2 = st.columns(2)
 col1.subheader("Response Lag Time (in minutes)")
 col1.bar_chart(data,x='FSA' , y='Response Lag Time')#,  use_container_width=True
 col2.subheader("Response Lag Time (in minutes)")
-col2.bar_chart(filtered_data['Response Lag Time'])
+col2.bar_chart(data, x='FSA', y='Response Lag Time', use_container_width=True)
