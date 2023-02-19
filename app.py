@@ -12,7 +12,7 @@ st.title("Calgary Fire Station Response Lag Time Analysis")
 
 # Load data into a pandas dataframe
 data = pd.read_csv("fire_station_data.csv")
-df_ems = pd.read_excel("EMS_Stations.xlsx")
+df_ems = pd.read_excel("Fire_Stations.xlsx")
 #Map
 st.map(df_ems)
 
