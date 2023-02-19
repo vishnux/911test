@@ -54,7 +54,7 @@ col1, col2 = st.columns(2)
 col1.subheader("Response Lag Time (in minutes)")
 col1.bar_chart(filtered_data['Response Lag Time'])
 col2.subheader("Response Lag Time (in minutes)")
-col2.bar_chart(filtered_data['Response Lag Time'])
+col2.line_chart(filtered_data['Response Lag Time'])
 
 c = alt.Chart(data, title='measure of different elements over time').mark_line().encode(
      x='FSA', y='Response Time Lag', color='parameter')
