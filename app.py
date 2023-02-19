@@ -9,6 +9,7 @@ import folium
 
 st.set_page_config(layout="wide")
 st.title("Calgary Fire Station Response Lag Time Analysis")
+st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
 #st.set_page_config(layout="wide")
 
 # Load data into a pandas dataframe
