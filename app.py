@@ -29,9 +29,9 @@ m1,col0, col1, col2, col3, col4, m2= st.columns((1,1,1,1,1,1,1))
 m1.write('')
 m2.write('')
 col0.write('')
-col1.metric("Mean Response Lag Time:", f"{round(filtered_data['Response Lag Time'].mean(),2)} minutes")
-col2.metric("Median Response Lag Time:", f"{round(filtered_data['Response Lag Time'].median(),2)} minutes")
-col3.metric("Standard Deviation Response Lag Time:", f"{round(filtered_data['Response Lag Time'].std(),2)} minutes")
+col1.metric("Mean Response Lag Time:", f"{round(filtered_data['Response Lag Time'].mean(),2)} min")
+col2.metric("Median Response Lag Time:", f"{round(filtered_data['Response Lag Time'].median(),2)} min")
+col3.metric("Standard Deviation Response Lag Time:", f"{round(filtered_data['Response Lag Time'].std(),2)} min")
 col4.write('')
 
 
