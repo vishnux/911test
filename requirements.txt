@@ -4,6 +4,3 @@ seaborn
 datetime
 altair
 streamlit
-plotly.express 
-plotly.graph_objects 
-plotly.subplots 
