@@ -12,6 +12,9 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 from pandas.io.json import json_normalize
+import plotly.express as px
+import plotly.graph_objects as go
+import plotly.subplots as sp
 
 st.set_page_config(layout="wide")
 st.title("Calgary Fire Station Response Lag Time Analysis")
@@ -52,14 +55,15 @@ st.write(filtered_data.groupby("Fire Station Name").mean().sort_values(by='Respo
 
 col1, col2 = st.columns(2)
 col1.subheader("Response Lag Time (in minutes)")
-col1.bar_chart(filtered_data['Response Lag Time'])
+col1.bar_chart(filtered_data,x='FSA' , y='Response Lag Time',  use_container_width=True)
 col2.subheader("Response Lag Time (in minutes)")
-col2.line_chart(filtered_data['Response Lag Time'])
+col2.bar_chart(filtered_data['Response Lag Time'])
 
-c = alt.Chart(data, title='measure of different elements over time').mark_line().encode(
-     x='FSA', y='Response Time Lag', color='parameter')
+#c = alt.Chart(data, title='measure of different elements over time').mark_line().encode(
+#     x='FSA', y='Response Time Lag', color='parameter')
 
-st.altair_chart(c, use_container_width=True)
+#st.altair_chart(c, use_container_width=True)
+
 # # import json
 # # from datetime import date
 # # from urllib.request import urlopen
