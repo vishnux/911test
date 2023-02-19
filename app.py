@@ -15,11 +15,11 @@ st.title("Calgary Fire Station Response Lag Time Analysis")
 data = pd.read_csv("fire_station_data.csv")
 df_fire = pd.read_csv("Fire_Stations.csv")
 #Map
-m = folium.Map(location=[df_fire['lat'].mean(), df_fire['lon'].mean()], zoom_start=11)
+m = folium.Map(location=[df_fire['LAT'].mean(), df_fire['LON'].mean()], zoom_start=11)
 
 # Add markers to the map
 for index, row in df_fire.iterrows():
-    folium.Marker([row['lat'], row['lon']], popup=row['label']).add_to(m)
+    folium.Marker([row['LAT'], row['LON']], popup=row['Name']).add_to(m)
 
 # Display the map in Streamlit
 folium_static(m)
