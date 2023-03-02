@@ -13,23 +13,23 @@ st.set_page_config(layout="wide")
 st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)#color: red;
 
+# Load data into a pandas dataframe
+data = pd.read_csv("fire_station_data.csv")
+df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
+#df_ems = pd.read_excel("EMS_Stations.xlsx")
+
 # Load the shapefile using geopandas
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # center on Liberty Bell, add marker
 #m = folium.Map(tiles='OpenStreetMap',zoom_start=160)
 m = shapefile.explore()
-for idx, row in fire_stations.iterrows():
+for idx, row in df_fire.iterrows():
     folium.Marker(location=[row["Latitude"], row["Longitude"]], popup=row["Name"]).add_to(m)
 st_data = st_folium(m, width=725)
 shapefile.explore()
 
 #st.set_page_config(layout="wide")
-
-# Load data into a pandas dataframe
-data = pd.read_csv("fire_station_data.csv")
-df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
-#df_ems = pd.read_excel("EMS_Stations.xlsx")
 
 #Shapefile
 shapefile = gpd.read_file("clipped-to-calgary.shp",SHAPE_RESTORE_SHX = 'YES')
