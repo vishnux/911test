@@ -25,7 +25,7 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 #m = folium.Map(tiles='OpenStreetMap',zoom_start=160)
 m = shapefile.explore()
 for idx, row in df_fire.iterrows():
-    folium.Marker(location=[row["LAT"], row["LON"]]).add_to(m)#, row["LON"]], popup=row["Name"]
+    folium.Marker(location=[row["LAT"], row["LON"]], icon=folium.Icon(icon="circle", prefix='fa', color='blue').add_to(m)#, row["LON"]], popup=row["Name"]
 st_data = st_folium(m, width=725)
 shapefile.explore()
 
