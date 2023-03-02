@@ -19,6 +19,8 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 # center on Liberty Bell, add marker
 #m = folium.Map(tiles='OpenStreetMap',zoom_start=160)
 m = shapefile.explore()
+for idx, row in fire_stations.iterrows():
+    folium.Marker(location=[row["Latitude"], row["Longitude"]], popup=row["Name"]).add_to(m)
 st_data = st_folium(m, width=725)
 shapefile.explore()
 
