@@ -6,6 +6,7 @@ from urllib.request import urlopen
 import time
 import altair as alt
 import folium
+import geopandas as gpd
 
 st.set_page_config(layout="wide")
 st.title("")
