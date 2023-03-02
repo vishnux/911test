@@ -16,6 +16,10 @@ st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag T
 data = pd.read_csv("fire_station_data.csv")
 df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
 #df_ems = pd.read_excel("EMS_Stations.xlsx")
+
+#Shapefile
+shapefile = gpd.read_file("clipped-to-calgary.shp",SHAPE_RESTORE_SHX = 'YES')
+shapefile.explore()
 #Map
 #st.map(df_ems)
 st.map(df_fire)
