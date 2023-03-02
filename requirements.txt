@@ -7,5 +7,7 @@ streamlit
 openpyxl
 folium
 streamlit_folium
-folium matplotlib mapclassify
+folium 
+matplotlib 
+mapclassify
 geopandas
