@@ -20,8 +20,8 @@ df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
 
 #Shapefile
 shapefile = gpd.read_file("clipped-to-calgary.shp",SHAPE_RESTORE_SHX = 'YES')
-st.map(shapefile)
 shapefile.explore()
+shapefile.plot()
 #Map
 #st.map(df_ems)
 st.map(df_fire)
